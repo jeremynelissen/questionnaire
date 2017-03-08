@@ -8,30 +8,31 @@ Provide a final message after the quiz letting the user know the number of quest
 Rank the player. If the player answered all five correctly, give that player the gold crown: 3-4 is a silver crown; 1-2 correct answers is a bronze crown and 0 correct is no crown at all.
 */
 
-window.alert("Welcome! Its time to take a small math quiz!");
+alert("Welcome! Its time to take a small math quiz!");
 
 var playerScore = 0; 
 var playerRank = "No Crown";
 
 // Question 1
 
-var answerOne = window.prompt("What is 15 + 11? ");
+var answerOne = prompt("What is 15 + 11?");
 
-if(parseInt(answerOne) === 26 || answerOne.toUpperCase() === "TWENTY SIX";){    
+if(parseInt(answerOne) === 26 || answerOne.toUpperCase() === "TWENTY SIX") {
   alert("Correct! Next Question.");
   playerScore += 1; 
-}else {
+} else {
   alert("Sorry. 15 + 11 is 26");
 }
 
 // Question 2
 
-var answerTwo = prompt("Can 33 be evenly divisble by 5?");
+var answerTwo = prompt("Is 33 evenly divisble by 5?");
 
-if(answerTwo.toUpperCase() === 'YES' || 'Y';){
+var answerTwoUpper = answerTwo.toUpperCase();
+if(answerTwoUpper === 'NO' || answerTwoUpper === 'N'){
   alert("Nice One! Next Question.");
   playerScore += 1;
-}else{
+} else {
   alert("Oops! 33 is not evenly divisible by 5.");
 }
 
@@ -39,18 +40,18 @@ if(answerTwo.toUpperCase() === 'YES' || 'Y';){
 
 var answerThree = prompt("What is the next prime number after 5?");
 
-if(parseInt(answerThree) === 7 || answerThree.toUpperCase() === "SEVEN"; ){
+if(parseInt(answerThree) === 7 || answerThree.toUpperCase() === "SEVEN") {
   alert("Easy! Next One!");
   playerScore += 1;
 } else {
-  alert("Sorry. It's actually 7!" )
+  alert("Sorry. It's actually 7!");
 }
 
 // Question 4
 
 var answerFour = prompt("What is the square root of 16?");
 
-if(parseInt(answerFour) === 4 || answerFour.toUpperCase() === "FOUR"){
+if(parseInt(answerFour) === 4 || answerFour.toUpperCase() === "FOUR") {
   alert("Great Job! 4 on question 4!!");
   playerScore += 1;
 }
@@ -59,25 +60,31 @@ if(parseInt(answerFour) === 4 || answerFour.toUpperCase() === "FOUR"){
 
 var answerFive = prompt("In the equation '4 x 5 - 1', which operation would you do first?");
 
-if( answerFive.toUpperCase() === "X" || answerFive.toUpperCase() === "TIMES" || answerFive.toUpperCase() === "MULTIPLY"){
+if(answerFive.toUpperCase() === "X" || answerFive.toUpperCase() === "TIMES" || answerFive.toUpperCase() === "MULTIPLY") {
   alert("Correct! Now time for your score!");
   playerScore += 1;
-}else{
+} else {
   alert("Sorry. Now it's time to find out your final score!");
 }
 
 // Score to Ranking System
- 
-if ( playerScore === 5){
-  playerRank === "Gold Crown"
-} else if( playerScore === 4 || playerRank === 3){
-  playerRank === "Silver Crown"
-}else if( playerScore === 2 || playerRank === 1){
-  playerRank === "Bronze Crown"
-} else{
-  playerRank === "No Crown"
+
+switch(playerScore) {
+  case 5:
+    playerRank = "Gold Crown";
+    break;
+  case 4:
+  case 3:
+    playerRank = "Silver Crown";
+    break;
+  case 2:
+  case 1:
+    playerRank = "Bronze Crown";
+    break;
+  default:
+    playerRank = "No Crown";
+    break; 
 }
 
-
 // Final Message
-alert('Congrats! Your final score was ' + playerScore + '. Earning you the prestigious award of ' + playerRank +');
+alert('Congrats! Your final score was ' + playerScore + '. Earning you the prestigious award of ' + playerRank + '.');
